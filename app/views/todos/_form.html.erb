@@ -1,7 +1,7 @@
 <%= form_with(model: todo, id: "#{dom_id(todo)}_form") do |form| %>
-  <% if todo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+<% if todo.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h5>
 
       <ul>
         <% todo.errors.each do |error| %>
@@ -10,18 +10,16 @@
       </ul>
     </div>
   <% end %>
+<div class="card">
+  <div class="card-body">
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :title, { class: "form-label"} %>
+      <%= form.text_field :title, { class: "form-control", placeholder: "Add item" } %>
+    <!-- </div> -->
 
-  <div>
-    <%#= form.label :status, style: "display: block" %>
-    <%#= form.number_field :status %>
-  </div>
+    <%= form.submit "Submit", class: "btn btn-success btn-sm" %>
 
-  <div>
-    <%= form.submit %>
   </div>
+</div>
 <% end %>
