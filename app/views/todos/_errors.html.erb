@@ -1,0 +1,11 @@
+<% if @todo.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h4>
+      <a href="#" class="close" data-dismiss="alert">&#215;</a>
+      <ul>
+        <% @todo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
