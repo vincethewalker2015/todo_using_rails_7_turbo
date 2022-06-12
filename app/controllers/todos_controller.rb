@@ -29,6 +29,7 @@ class TodosController < ApplicationController
         format.turbo_stream
         format.html { redirect_to todos_url, notice: "Todo was successfully created." }
       else
+        # format.html { render :new, status: :unprocessable_entity }
         format.turbo_stream { render turbo_stream: turbo_stream.replace("#{helpers.dom_id(@todo)}_form", partial: "form", locals: { todo: @todo })}
       end
     end
@@ -50,7 +51,7 @@ class TodosController < ApplicationController
   # DELETE /todos/1 or /todos/1.json
   def destroy
     @todo.destroy
-
+    puts 'In the process of being deleted'
     respond_to do |format|
       format.html { redirect_to todos_url, notice: "Todo was successfully destroyed." }
       format.json { head :no_content }
