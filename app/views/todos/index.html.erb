@@ -1,9 +1,13 @@
-<!-- <p style="color: green"><%#= notice %></p> -->
-<p class="alert alert-success"><%= notice %></p>
+<div class="row">
+  <p style="color: green"><%#= notice %></p>
 
-<h1>Todos</h1>
+
+<div class="mx-auto">
+  <h1>Todos</h1>
 <%= render 'form', todo: Todo.new %>
 <div id="todos">
   <%= render @todos %>
+</div>
+</div>
 </div>
 
